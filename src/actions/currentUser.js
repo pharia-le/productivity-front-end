@@ -25,7 +25,7 @@ export const login = credentials => {
                 body: JSON.stringify(credentials)
             })
             .then(resp => resp.json())
-            .then(user => dispatch(setCurrentUser(user)))
+            .then(json => dispatch(setCurrentUser(json.data)))
         )
 
     }
