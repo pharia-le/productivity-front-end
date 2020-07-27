@@ -28,8 +28,8 @@ export const login = credentials => {
             })
             .then(resp => resp.json())
             .then(json => {
-                if (response.error) {
-                    alert(response.error)
+                if (json.error) {
+                    alert(json.error)
                 } else {
                     dispatch(setCurrentUser(json.data))
                     dispatch(resetLoginForm())
