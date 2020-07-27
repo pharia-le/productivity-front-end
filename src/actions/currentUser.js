@@ -1,4 +1,5 @@
-import { resetLoginForm } from "./loginForm.js"
+import { resetLoginForm } from "./loginForm"
+import { getMyHabits } from "./myHabits"
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -32,6 +33,7 @@ export const login = credentials => {
                     alert(json.error)
                 } else {
                     dispatch(setCurrentUser(json.data))
+                    dispatch(getMyHabits())
                     dispatch(resetLoginForm())
                 }
             })
@@ -67,6 +69,7 @@ export const getCurrentUser = () => {
                   alert(json.error)
                 } else {
                   dispatch(setCurrentUser(json.data))
+                  dispatch(getMyHabits())
                 }
               })
         )
