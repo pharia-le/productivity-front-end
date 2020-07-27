@@ -15,9 +15,14 @@ class App extends Component {
   }
 
   render() {
+    const { loggedIn } = this.props
     return (
       <div className="App">
         <NavBar />
+        <Route 
+          exact path='/'
+          render={() => loggedIn ? <MyHabits /> : <Home />}
+        />
         <Route 
           exact path='/login'
           component={Login}
@@ -27,11 +32,11 @@ class App extends Component {
           component={Signup}
         />
         <Route 
-          exact path='/my-habits'
+          exact path='/habits'
           component={MyHabits}
         />
       </div>
     )}
 }
 
-export default connect(null, { getCurrentUser })(App);
+export default connect(state => ({loggedIn: !!state.currentUser}), { getCurrentUser })(App);
