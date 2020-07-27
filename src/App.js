@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom'
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from './components/NavBar'
-import MainContainer from './components/MainContainer';
+import Login from './components/Login'
+import Signup from './components/Signup'
+import MyHabits from './components/MyHabits'
 
 class App extends Component {
 
@@ -15,7 +18,18 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <MainContainer />
+        <Route 
+          exact path='/login'
+          component={Login}
+        />
+        <Route 
+          exact path='/signup'
+          component={Signup}
+        />
+        <Route 
+          exact path='/my-habits'
+          component={MyHabits}
+        />
       </div>
     )}
 }
