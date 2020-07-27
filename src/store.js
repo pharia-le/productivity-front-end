@@ -4,6 +4,7 @@ import users from './reducers/users';
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
+import habitForm from './reducers/habitForm'
 import myHabits from './reducers/myHabits'
 
 const reducer = combineReducers({
@@ -11,6 +12,7 @@ const reducer = combineReducers({
     currentUser,
     loginForm,
     signupForm,
+    habitForm,
     myHabits
   })
   
