@@ -17,7 +17,7 @@ export const clearCurrentUser = () => {
 }
 
 // asynchronous action creators
-export const login = credentials => {
+export const login = (credentials, history) => {
     return dispatch => {
         return (
             fetch("http://localhost:3000/api/v1/login", {
@@ -36,6 +36,7 @@ export const login = credentials => {
                     dispatch(setCurrentUser(json.data))
                     dispatch(getMyHabits())
                     dispatch(resetLoginForm())
+                    history.push('/')
                 }
             })
         )
@@ -54,7 +55,7 @@ export const logout = () => {
     }
 }
 
-export const signup = (credentials) => {
+export const signup = (credentials, history) => {
     return dispatch => {
         const userInfo = {
             user: credentials
@@ -76,6 +77,7 @@ export const signup = (credentials) => {
                     dispatch(setCurrentUser(response.data))
                     dispatch(getMyHabits())
                     dispatch(resetSignupForm())
+                    history.push('/')
                 }
             })
         )
