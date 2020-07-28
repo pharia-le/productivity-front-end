@@ -12,6 +12,13 @@ export const clearHabits = habits => {
     }
 }
 
+export const addHabit = habit => {
+    return {
+        type: "ADD_HABIT",
+        habit
+    }
+}
+
 // asynchronous action creators
 export const getHabits = () => {
     return dispatch => {
@@ -30,6 +37,25 @@ export const getHabits = () => {
                 } else {
                     dispatch(setHabits(json.data))
                 }
+            })
+        )
+    }
+}
+
+export const createHabit = habitData => {
+    return dispatch => {
+        return (
+            fetch("http://localhost:3000/api/v1/habits", {
+                credentials: "include",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(habitData)
+                })
+                .then(resp => resp.json())
+                .then(json => {
+                    console.log(json)
             })
         )
     }

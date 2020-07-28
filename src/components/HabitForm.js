@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { updateHabitForm } from '../actions/habitForm'
-
-const HabitForm = ({ habitFormData, updateHabitForm, history }) => {
+import { createHabit } from '../actions/habits'
+const HabitForm = ({ habitFormData, updateHabitForm, createHabit, history }) => {
 
     const handleInputChange = event => {
         const { name, value } = event.target
@@ -11,6 +11,7 @@ const HabitForm = ({ habitFormData, updateHabitForm, history }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
+        createHabit(habitFormData)
     }
 
     return (
@@ -27,4 +28,4 @@ const HabitForm = ({ habitFormData, updateHabitForm, history }) => {
     );
 };
 
-export default connect(state => ({habitFormData: state.habitForm}), { updateHabitForm })(HabitForm);
+export default connect(state => ({habitFormData: state.habitForm}), { updateHabitForm, createHabit })(HabitForm);
