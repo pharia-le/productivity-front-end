@@ -5,11 +5,12 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case "UPDATE_NEW_HABIT_FORM":
-            const returnVal = {
+            return {
                 ...state,
                 [action.formData.name]: action.formData.value
             }
-            return returnVal
+        case "SET_FORM_DATA_FOR_EDIT":
+            return action.habitFormData
         case "RESET_NEW_HABIT_FORM":
             return initialState
         default:

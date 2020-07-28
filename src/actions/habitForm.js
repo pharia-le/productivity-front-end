@@ -12,3 +12,11 @@ export const resetHabitForm = () => {
         type: "RESET_NEW_HABIT_FORM"
     }
 }
+
+export const setFormDataForEdit = habit => {
+    const habitFormData = { name: habit.attributes.name }
+    return {
+        type: "SET_FORM_DATA_FOR_EDIT",
+        habitFormData
+    }
+}
