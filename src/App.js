@@ -9,6 +9,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Habits from './components/Habits'
 import HabitForm from './components/HabitForm'
+import HabitCard from './components/HabitCard';
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { loggedIn, habits } = this.props
     return (
       <div className="App">
         { loggedIn ? <NavBar /> : <Home/> }
@@ -38,9 +39,17 @@ class App extends Component {
             exact path='/habits/new'
             component={HabitForm}
           />
+          <Route 
+            exact path='/habits/:id'
+            render={props => {
+                const habit = habits.find(habit => habit.id === props.match.params.id)
+                return <HabitCard habit={habit} {...props} />
+              }
+            }
+          />
         </Switch>
       </div>
     )}
 }
 
-export default connect(state => ({loggedIn: !!state.currentUser}), { getCurrentUser })(App);
+export default connect(({currentUser, habits}) => ({ loggedIn: !!currentUser, habits }), { getCurrentUser })(App);
