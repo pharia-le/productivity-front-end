@@ -11,7 +11,7 @@ const HabitForm = ({ habitFormData, updateHabitForm, createHabit, history }) => 
 
     const handleSubmit = event => {
         event.preventDefault()
-        createHabit(habitFormData)
+        createHabit(habitFormData, history)
     }
 
     return (

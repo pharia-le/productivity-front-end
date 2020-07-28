@@ -1,3 +1,5 @@
+import { resetHabitForm } from './habitForm'
+
 // synchronous action creators
 export const setHabits = habits => {
     return {
@@ -6,7 +8,7 @@ export const setHabits = habits => {
     }
 }
 
-export const clearHabits = habits => {
+export const clearHabits = () => {
     return {
         type: "CLEAR_HABITS",
     }
@@ -42,7 +44,7 @@ export const getHabits = () => {
     }
 }
 
-export const createHabit = habitData => {
+export const createHabit = (habitData, history) => {
     return dispatch => {
         return (
             fetch("http://localhost:3000/api/v1/habits", {
@@ -55,8 +57,14 @@ export const createHabit = habitData => {
                 })
                 .then(resp => resp.json())
                 .then(json => {
-                    console.log(json)
-            })
+                    if (json.error) {
+                        alert(json.error)
+                    } else {
+                        dispatch(addHabit(json.data))
+                        dispatch(resetHabitForm())
+                        history.push(`/habits/${json.data.id}`)
+                    }
+                })
         )
     }
 }
