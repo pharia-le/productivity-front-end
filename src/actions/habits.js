@@ -28,6 +28,13 @@ export const updateHabitSuccess = habit => {
     }
 }
 
+export const deleteHabitSuccess = habitId => {
+    return {
+        type: "DELETE_HABIT",
+        habitId
+    }
+}
+
 // asynchronous action creators
 export const getHabits = () => {
     return dispatch => {
@@ -100,6 +107,30 @@ export const updateHabit = (habitData, history) => {
                     } else {
                         dispatch(updateHabitSuccess(json.data))
                         history.push(`/habits/${json.data.id}`)
+                    }
+                })
+        )
+    }
+}
+
+export const deleteHabit = (habitId, history) => {
+    return dispatch => {
+        return (
+            fetch(`http://localhost:3000/api/v1/habits/${habitId}`, {
+                credentials: "include",
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(habitId)
+                })
+                .then(resp => resp.json())
+                .then(json => {
+                    if (json.error) {
+                        alert(json.error)
+                    } else {
+                        dispatch(deleteHabitSuccess(habitId))
+                        history.push('/habits')
                     }
                 })
         )
