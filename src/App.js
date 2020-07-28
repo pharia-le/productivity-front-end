@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser'
@@ -20,27 +20,25 @@ class App extends Component {
     const { loggedIn } = this.props
     return (
       <div className="App">
-        <NavBar />
-        <Route 
-          exact path='/'
-          render={() => loggedIn ? <MyHabits /> : <Home />}
-        />
-        <Route 
-          exact path='/login'
-          component={Login}
-        />
-        <Route 
-          exact path='/signup'
-          component={Signup}
-        />
-        <Route 
-          exact path='/habits'
-          component={MyHabits}
-        />
-        <Route 
-          exact path='/habits/new'
-          component={HabitForm}
-        />
+        { loggedIn ? <NavBar /> : <Home/> }
+        <Switch>
+          <Route 
+            exact path='/login'
+            component={Login}
+          />
+          <Route 
+            exact path='/signup'
+            component={Signup}
+          />
+          <Route 
+            exact path='/habits'
+            component={MyHabits}
+          />
+          <Route 
+            exact path='/habits/new'
+            component={HabitForm}
+          />
+        </Switch>
       </div>
     )}
 }
