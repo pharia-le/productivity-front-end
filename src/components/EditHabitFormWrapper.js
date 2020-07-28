@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { updateHabit } from '../actions/habits'
+import { updateHabit, deleteHabit } from '../actions/habits'
 import { setFormDataForEdit, resetHabitForm } from '../actions/habitForm'
 import HabitForm from './HabitForm'
 
@@ -27,12 +27,16 @@ class EditHabitFormWrapper extends React.Component {
     }
 
     render() {
+        const { deleteHabit, habit, history } = this.props
+        const habitId = habit ? habit.id : null
         return (
             <div>
                 <HabitForm editMode handleSubmit={this.handleSubmit} />
+                <br/>
+                <button style={{color: "red"}} onClick={()=>deleteHabit(habitId, history)}>Delete this Habit</button>
             </div>
         )
     }
 };
 
-export default connect(null, { updateHabit, setFormDataForEdit, resetHabitForm })(EditHabitFormWrapper)
+export default connect(null, { updateHabit, deleteHabit, setFormDataForEdit, resetHabitForm })(EditHabitFormWrapper)
