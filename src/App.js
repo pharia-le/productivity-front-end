@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import { connect } from 'react-redux'
-import { getCurrentUser } from './actions/currentUser'
-import NavBar from './components/NavBar'
-import Home from './components/Home'
-import Login from './components/Login'
-import Signup from './components/Signup'
-import Habits from './components/Habits'
-import HabitForm from './components/HabitForm'
+import { connect } from 'react-redux';
+import { getCurrentUser } from './actions/currentUser';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Habits from './components/Habits';
 import HabitCard from './components/HabitCard';
+import EditHabitFormWrapper from './components/EditHabitFormWrapper'
+import NewHabitFormWrapper from './components/NewHabitFormWrapper'
 
 class App extends Component {
 
@@ -32,12 +33,12 @@ class App extends Component {
             component={Signup}
           />
           <Route 
-            exact path='/habits'
-            component={Habits}
+            exact path='/habits/new'
+            component={NewHabitFormWrapper}
           />
           <Route 
-            exact path='/habits/new'
-            component={HabitForm}
+            exact path='/habits'
+            component={Habits}
           />
           <Route 
             exact path='/habits/:id'
@@ -51,7 +52,7 @@ class App extends Component {
             exact path='/habits/:id/edit'
             render={props => {
                 const habit = habits.find(habit => habit.id === props.match.params.id)
-                // need a habit edit form
+                return <EditHabitFormWrapper habit={habit} {...props} />
               }
             }
           />

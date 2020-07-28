@@ -1,31 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { updateHabitForm } from '../actions/habitForm'
-import { createHabit } from '../actions/habits'
-const HabitForm = ({ habitFormData, updateHabitForm, createHabit, history }) => {
 
-    const handleInputChange = event => {
+const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode }) => {
+    
+    const handleChange = event => {
         const { name, value } = event.target
         updateHabitForm(name,value)
     }
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        createHabit(habitFormData, history)
-    }
-
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={event => {
+                event.preventDefault()
+                handleSubmit(formData)
+                }
+            }>
             <input 
                 placeholder="name"
-                value={habitFormData.name} 
+                value={formData.name} 
                 name="name"
                 type="text"
-                onChange={handleInputChange} 
+                onChange={handleChange} 
             />
-            <input type="submit" value="Create Habit"/>
+            <input
+                type="submit"
+                value={editMode ? "Update Habit" : "Create Habit" }
+            />
         </form>
     );
 };
 
-export default connect(state => ({habitFormData: state.habitForm}), { updateHabitForm, createHabit })(HabitForm);
+export default connect(state => ({formData: state.habitForm}), { updateHabitForm })(HabitForm);
