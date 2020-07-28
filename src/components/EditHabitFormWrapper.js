@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { updateHabit } from '../actions/habits'
-import { setFormDataForEdit } from '../actions/habitForm'
+import { setFormDataForEdit, resetHabitForm } from '../actions/habitForm'
 import HabitForm from './HabitForm'
 
 class EditHabitFormWrapper extends React.Component {
@@ -10,6 +10,14 @@ class EditHabitFormWrapper extends React.Component {
         this.props.habit && this.props.setFormDataForEdit(this.props.habit)
     }
 
+    componentDidUpdate(prevProps) {
+        this.props.habit && !prevProps.habit && this.props.setFormDataForEdit(this.props.habit)
+    }
+    
+    componentWillUnmount() {
+        this.props.resetHabitForm()
+    }
+    
     handleSubmit = (formData) => {
         const { updateHabit, habit, history } = this.props
         updateHabit({
@@ -27,4 +35,4 @@ class EditHabitFormWrapper extends React.Component {
     }
 };
 
-export default connect(null, { updateHabit, setFormDataForEdit })(EditHabitFormWrapper)
+export default connect(null, { updateHabit, setFormDataForEdit, resetHabitForm })(EditHabitFormWrapper)
