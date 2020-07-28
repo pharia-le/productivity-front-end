@@ -5,7 +5,7 @@ import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
 import habitForm from './reducers/habitForm'
-import myHabits from './reducers/myHabits'
+import habits from './reducers/habits'
 
 const reducer = combineReducers({
     users,
@@ -13,7 +13,7 @@ const reducer = combineReducers({
     loginForm,
     signupForm,
     habitForm,
-    myHabits
+    habits
   })
   
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

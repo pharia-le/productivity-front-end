@@ -1,10 +1,10 @@
 import React from 'react';
-import MyHabits from './MyHabits';
+import Habits from './Habits';
 
 const MainContainer = () => {
     return (
         <div className="MainContainer">
-            <MyHabits />
+            <Habits />
         </div>
     );
 };

@@ -9,7 +9,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
             <NavLink 
                 exact activeClass
                 to="/habits"
-                >My Habits  |
+                >Habits  |
             </NavLink>
             <NavLink
                 exact activeClass

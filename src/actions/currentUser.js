@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginForm"
 import { resetSignupForm } from "./signupForm"
-import { getMyHabits , clearMyHabits} from "./myHabits"
+import { getHabits , clearHabits} from "./habits"
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -34,7 +34,7 @@ export const login = (credentials, history) => {
                     alert(json.error)
                 } else {
                     dispatch(setCurrentUser(json.data))
-                    dispatch(getMyHabits())
+                    dispatch(getHabits())
                     dispatch(resetLoginForm())
                     history.push('/')
                 }
@@ -46,7 +46,7 @@ export const login = (credentials, history) => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
-        dispatch(clearMyHabits())
+        dispatch(clearHabits())
         return (    
             fetch('http://localhost:3000/api/v1/logout', {
                 credentials: "include",
@@ -76,7 +76,7 @@ export const signup = (credentials, history) => {
                     alert(response.error)
                 } else {
                     dispatch(setCurrentUser(response.data))
-                    dispatch(getMyHabits())
+                    dispatch(getHabits())
                     dispatch(resetSignupForm())
                     history.push('/')
                 }
@@ -101,7 +101,7 @@ export const getCurrentUser = () => {
                   alert(json.error)
                 } else {
                   dispatch(setCurrentUser(json.data))
-                  dispatch(getMyHabits())
+                  dispatch(getHabits())
                 }
               })
         )

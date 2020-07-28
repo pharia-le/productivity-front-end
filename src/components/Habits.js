@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import HabitCard from './HabitCard'
 
-const MyHabits = ({ habits }) => {
+const Habits = ({ habits }) => {
     const habitCards = habits.map(h => <HabitCard habit={h} key={h.id} />)
     return (
         <div>
@@ -11,4 +11,4 @@ const MyHabits = ({ habits }) => {
     );
 };
 
-export default connect(state => ({habits: state.myHabits}))(MyHabits);
+export default connect(state => ({habits: state.habits}))(Habits);

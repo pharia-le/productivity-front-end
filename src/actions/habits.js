@@ -1,19 +1,19 @@
 // synchronous action creators
-export const setMyHabits = habits => {
+export const setHabits = habits => {
     return {
-        type: "SET_MY_HABITS",
+        type: "SET_HABITS",
         habits
     }
 }
 
-export const clearMyHabits = habits => {
+export const clearHabits = habits => {
     return {
-        type: "CLEAR_MY_HABITS",
+        type: "CLEAR_HABITS",
     }
 }
 
 // asynchronous action creators
-export const getMyHabits = () => {
+export const getHabits = () => {
     return dispatch => {
         return (
             fetch("http://localhost:3000/api/v1/habits", {
@@ -28,7 +28,7 @@ export const getMyHabits = () => {
                 if (json.error) {
                     alert(json.error)
                 } else {
-                    dispatch(setMyHabits(json.data))
+                    dispatch(setHabits(json.data))
                 }
             })
         )

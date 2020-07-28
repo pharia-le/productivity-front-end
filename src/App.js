@@ -7,7 +7,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import MyHabits from './components/MyHabits'
+import Habits from './components/Habits'
 import HabitForm from './components/HabitForm'
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
           />
           <Route 
             exact path='/habits'
-            component={MyHabits}
+            component={Habits}
           />
           <Route 
             exact path='/habits/new'
