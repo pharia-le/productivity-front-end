@@ -47,6 +47,14 @@ class App extends Component {
               }
             }
           />
+          <Route 
+            exact path='/habits/:id/edit'
+            render={props => {
+                const habit = habits.find(habit => habit.id === props.match.params.id)
+                // need a habit edit form
+              }
+            }
+          />
         </Switch>
       </div>
     )}
