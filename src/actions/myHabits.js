@@ -1,9 +1,14 @@
 // synchronous action creators
 export const setMyHabits = habits => {
-
     return {
         type: "SET_MY_HABITS",
         habits
+    }
+}
+
+export const clearMyHabits = habits => {
+    return {
+        type: "CLEAR_MY_HABITS",
     }
 }
 
