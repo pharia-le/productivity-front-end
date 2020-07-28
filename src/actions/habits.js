@@ -99,7 +99,6 @@ export const updateHabit = (habitData, history) => {
                         alert(json.error)
                     } else {
                         dispatch(updateHabitSuccess(json.data))
-                        dispatch(resetHabitForm())
                         history.push(`/habits/${json.data.id}`)
                     }
                 })
