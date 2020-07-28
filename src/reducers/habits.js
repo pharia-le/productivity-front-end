@@ -5,7 +5,7 @@ export default (state = initialState, action) => {
         case "SET_HABITS":
             return action.habits
         case "ADD_HABIT":
-            return state.habits.concat(action.habit)
+            return state.concat(action.habit)
         case "CLEAR_HABITS":
             return initialState
         default:
