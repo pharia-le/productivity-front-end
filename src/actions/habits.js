@@ -1,6 +1,5 @@
 import { resetHabitForm } from './habitForm'
 
-// synchronous action creators
 export const setHabits = habits => {
     return {
         type: "SET_HABITS",
@@ -35,7 +34,6 @@ export const deleteHabitSuccess = habitId => {
     }
 }
 
-// asynchronous action creators
 export const getHabits = () => {
     return dispatch => {
         return (
@@ -131,6 +129,34 @@ export const deleteHabit = (habitId, history) => {
                     } else {
                         dispatch(deleteHabitSuccess(habitId))
                         history.push('/habits')
+                    }
+                })
+        )
+    }
+}
+
+export const createLog = (habitId) => {
+    const logData = {
+        date: new Date(),
+        habit_id: habitId
+    }
+    return dispatch => {
+        return (
+            fetch("http://localhost:3000/api/v1/logs", {
+                credentials: "include",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(logData)
+                })
+                .then(resp => resp.json())
+                .then(json => {
+                    
+                    if (json.error) {
+                        alert(json.error)
+                    } else {
+                        dispatch(getHabits())
                     }
                 })
         )
