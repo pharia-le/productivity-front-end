@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateHabitForm } from '../../actions/habitForm';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode }) => {
     
@@ -10,23 +12,27 @@ const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode }) => {
     }
 
     return (
-        <form onSubmit={event => {
+        <Form className="habit-form"
+                onSubmit={event => {
                 event.preventDefault()
                 handleSubmit(formData)
-                }
-            }>
-            <input 
-                placeholder="name"
-                value={formData.name} 
-                name="name"
-                type="text"
-                onChange={handleChange} 
-            />
-            <input
-                type="submit"
-                value={editMode ? "Update Habit" : "Create Habit" }
-            />
-        </form>
+            }
+        }>
+            <Form.Group>
+                <Form.Control 
+                    size="lg"
+                    type="text"
+                    placeholder="Habit Name"
+                    name="name"
+                    type="text"
+                    onChange={handleChange}
+                    value={formData.name} 
+                />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                {editMode ? "Update Habit" : "Create Habit" }
+            </Button>
+        </Form>
     );
 };
 
