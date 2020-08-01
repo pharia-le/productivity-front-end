@@ -11,7 +11,8 @@ import HabitCard from './components/habits/HabitCard';
 import LogCard from './components/logs/LogCard';
 import EditHabitFormWrapper from './components/habits/EditHabitFormWrapper';
 import NewHabitFormWrapper from './components/habits/NewHabitFormWrapper';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import './App.css';
 
 class App extends Component {
 
