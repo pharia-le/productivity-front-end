@@ -22,7 +22,7 @@ const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode }) => {
                 <Form.Control 
                     size="lg"
                     type="text"
-                    placeholder="Habit Name"
+                    placeholder="Enter habit name"
                     name="name"
                     type="text"
                     onChange={handleChange}

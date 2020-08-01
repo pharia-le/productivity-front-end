@@ -37,10 +37,10 @@
   }
 }
 
-.login-form {
+.auth-form {
   position: relative;
   background: white;
-  width: 40%;
+  width: 300px;
   margin: 0 auto;
   padding: 20px;
   resize: both;
@@ -50,7 +50,7 @@
 .habit-form {
   position: relative;
   background: white;
-  width: 60%;
+  width: 500px;
   margin: 0 auto;
   padding: 20px;
   resize: both;

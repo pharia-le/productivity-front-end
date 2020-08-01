@@ -23,9 +23,8 @@ const Login = ({ login, loginFormData, updateLoginForm, history }) => {
     }
 
     return (
-        <Form className="login-form" onSubmit={handleOnSubmit}>
-            <Form.Group controlId="formGroupEmail">
-                <Form.Label>Username</Form.Label>
+        <Form className="auth-form" onSubmit={handleOnSubmit}>
+            <Form.Group>
                 <Form.Control
                     type="text" 
                     name="username" 
@@ -34,8 +33,7 @@ const Login = ({ login, loginFormData, updateLoginForm, history }) => {
                     onChange={handleInputChange}
                 />
             </Form.Group>
-            <Form.Group controlId="formGroupEmail">
-                <Form.Label>Password</Form.Label>
+            <Form.Group>
                 <Form.Control
                     type="password" 
                     name="password"
