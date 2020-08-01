@@ -162,3 +162,27 @@ export const createLog = (habitId) => {
         )
     }
 }
+
+export const deleteLog = (logId, habitId, history) => {
+    return dispatch => {
+        return (
+            fetch(`http://localhost:3000/api/v1/logs/${logId}`, {
+                credentials: "include",
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(logId)
+                })
+                .then(resp => resp.json())
+                .then(json => {
+                    if (json.error) {
+                        alert(json.error)
+                    } else {
+                        dispatch(getHabits())
+                        history.push(`/habits/${habitId}`)
+                    }
+                })
+        )
+    }
+}
