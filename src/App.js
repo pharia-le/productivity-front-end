@@ -62,7 +62,7 @@ class App extends Component {
             render={props => {
                 const habit = habits.find(habit => habit.id === props.match.params.habitId)
                 const log = habit.attributes.logs.find(log => log.id.toString() === props.match.params.id)
-                return <LogCard log={log} {...props} habitName={habit.attributes.name} />
+                return <LogCard log={log} {...props} habit={habit} />
               }
             }
           />
