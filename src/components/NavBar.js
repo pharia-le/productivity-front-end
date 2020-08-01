@@ -7,12 +7,12 @@ const NavBar = ({ currentUser, loggedIn }) => {
     return (
         <div className="NavBar">
             <NavLink 
-                exact activeClass
+                exact activeclass="true"
                 to="/habits"
                 >Habits  |
             </NavLink>
             <NavLink
-                exact activeClass
+                exact activeclass="true"
                 to="/habits/new"
                 >New Habit  |
             </NavLink>
