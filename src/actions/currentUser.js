@@ -2,7 +2,6 @@ import { resetLoginForm } from './loginForm';
 import { resetSignupForm } from './signupForm';
 import { getHabits , clearHabits} from './habits';
 
-// synchronous action creators
 export const setCurrentUser = user => {
     return {
         type: 'SET_CURRENT_USER',
@@ -16,7 +15,6 @@ export const clearCurrentUser = () => {
     }
 }
 
-// asynchronous action creators
 export const login = (credentials, history) => {
     return dispatch => {
         return (
@@ -98,7 +96,7 @@ export const getCurrentUser = () => {
             .then(resp => resp.json())
             .then(json => {
                 if (json.error) {
-                  alert(json.error)
+                  console.log(json.error)
                 } else {
                   dispatch(setCurrentUser(json.data))
                   dispatch(getHabits())
