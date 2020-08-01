@@ -1,21 +1,24 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteLog } from '../actions/habits';
 
-const LogCard = ({ log, habitName }) => {
-    const dateToStr = (someDate) => {
-        return new Date(Date.parse(someDate)).toDateString()
+const LogCard = ({ log, habit, history, deleteLog }) => {
+    const dateToStr = (date) => {
+        return new Date(Date.parse(date)).toDateString()
       }
     return (
         <div>
-            <h3>{habitName}</h3>
-            <h2>Date: {dateToStr(log.date)}</h2>
-            <h2>Done: {log.done ? "YES" : "NO"}</h2>
-            <Link 
-                to={`/habits/${log.habit_id}/logs/${log.id}/edit`}
-                >Edit Log 
-            </Link>
+            { log ?
+            <div>
+                <h3>{habit.attributes.name}</h3>
+                <h2>Date: {dateToStr(log.date)}</h2>
+                <h2>Done: {log.done ? "YES" : "NO"}</h2>
+                <button style={{color: "red"}} onClick={() => deleteLog(log.id, habit.id, history)}>Delete Log</button>
+            </div>
+            : null    
+            }
         </div>
     );
 };
 
-export default LogCard;
+export default connect(null, { deleteLog })(LogCard);
