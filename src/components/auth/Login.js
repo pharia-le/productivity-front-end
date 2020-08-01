@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateLoginForm } from '../../actions/loginForm';
 import { login } from '../../actions/currentUser';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 const Login = ({ login, loginFormData, updateLoginForm, history }) => {
     
@@ -21,26 +23,31 @@ const Login = ({ login, loginFormData, updateLoginForm, history }) => {
     }
 
     return (
-        <form onSubmit={handleOnSubmit}>
-            <input 
-                type="text"
-                name="username"
-                placeholder="username"
-                value={loginFormData.username}
-                onChange={handleInputChange}
-            />
-            <input
-                type="password"
-                name="password"
-                placeholder="password"
-                value={loginFormData.password}
-                onChange={handleInputChange}
-            />
-            <input 
-                type="submit"
-                value="Log In"
-            />
-        </form>
+        <Form className="login-form" onSubmit={handleOnSubmit}>
+            <Form.Group controlId="formGroupEmail">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                    type="text" 
+                    name="username" 
+                    placeholder="Enter username"
+                    value={loginFormData.username}
+                    onChange={handleInputChange}
+                />
+            </Form.Group>
+            <Form.Group controlId="formGroupEmail">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password" 
+                    name="password"
+                    placeholder="Enter password"
+                    value={loginFormData.password}
+                    onChange={handleInputChange}
+                    />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                Log In
+            </Button>
+        </Form>
     );
 };
 
