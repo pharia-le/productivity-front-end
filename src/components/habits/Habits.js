@@ -8,7 +8,7 @@ const Habits = ({ habits }) => {
     let isDate = date => {
         const today = new Date()
         date = new Date(Date.parse(date))
-        return (date.getDate() === date.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear())
+        return (date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear())
       }
     const habitLinks = habits.length > 0 ?
     habits.map(h => (

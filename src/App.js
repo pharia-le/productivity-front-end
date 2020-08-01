@@ -5,7 +5,6 @@ import { getCurrentUser } from './actions/currentUser';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Login from './components/auth/Login';
-import Logout from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import Habits from './components/habits/Habits';
 import HabitCard from './components/habits/HabitCard';
