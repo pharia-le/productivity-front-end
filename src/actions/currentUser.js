@@ -1,6 +1,6 @@
-import { resetLoginForm } from "./loginForm"
-import { resetSignupForm } from "./signupForm"
-import { getHabits , clearHabits} from "./habits"
+import { resetLoginForm } from './loginForm';
+import { resetSignupForm } from './signupForm';
+import { getHabits , clearHabits} from './habits';
 
 // synchronous action creators
 export const setCurrentUser = user => {

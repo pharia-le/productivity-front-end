@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteLog } from '../actions/habits';
+import { deleteLog } from '../../actions/habits';
 
 const LogCard = ({ log, habit, history, deleteLog }) => {
     const dateToStr = (date) => {

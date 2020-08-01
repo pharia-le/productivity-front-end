@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { createHabit } from '../actions/habits'
-import HabitForm from './HabitForm'
+import { connect } from 'react-redux';
+import { createHabit } from '../../actions/habits';
+import HabitForm from './HabitForm';
 
 const NewHabitFormWrapper = ({ history, createHabit }) => {
     const handleSubmit = (formData) => {

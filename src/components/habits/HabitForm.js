@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { updateHabitForm } from '../actions/habitForm'
+import { connect } from 'react-redux';
+import { updateHabitForm } from '../../actions/habitForm';
 
 const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode }) => {
     

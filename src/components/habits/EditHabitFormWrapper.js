@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { updateHabit, deleteHabit } from '../actions/habits'
-import { setFormDataForEdit, resetHabitForm } from '../actions/habitForm'
-import HabitForm from './HabitForm'
+import { connect } from 'react-redux';
+import { updateHabit, deleteHabit } from '../../actions/habits';
+import { setFormDataForEdit, resetHabitForm } from '../../actions/habitForm';
+import HabitForm from './HabitForm';
 
 class EditHabitFormWrapper extends React.Component {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Habits from './Habits';
+import Habits from './habits/Habits';
 
 const MainContainer = () => {
     return (

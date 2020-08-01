@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Habits from './components/Habits';
-import HabitCard from './components/HabitCard';
-import LogCard from './components/LogCard';
-import EditHabitFormWrapper from './components/EditHabitFormWrapper';
-import NewHabitFormWrapper from './components/NewHabitFormWrapper';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
+import Habits from './components/habits/Habits';
+import HabitCard from './components/habits/HabitCard';
+import LogCard from './components/logs/LogCard';
+import EditHabitFormWrapper from './components/habits/EditHabitFormWrapper';
+import NewHabitFormWrapper from './components/habits/NewHabitFormWrapper';
+import './App.css';
 
 class App extends Component {
 

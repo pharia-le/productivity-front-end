@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import IsLoggedToday from './IsLoggedToday'
-import NotLoggedToday from './NotLoggedToday'
+import IsLoggedToday from '../logs/IsLoggedToday';
+import NotLoggedToday from '../logs/NotLoggedToday';
 
 const Habits = ({ habits }) => {
     

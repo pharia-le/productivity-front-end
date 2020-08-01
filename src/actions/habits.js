@@ -1,4 +1,4 @@
-import { resetHabitForm } from './habitForm'
+import { resetHabitForm } from './habitForm';
 
 export const setHabits = habits => {
     return {

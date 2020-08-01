@@ -1,4 +1,3 @@
-// synchronous action creators
 export const updateHabitForm = (name, value) => {
     const formData = { name, value }
     return {

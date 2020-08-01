@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import Calendar from './Calendar'
+import { Link } from 'react-router-dom';
+import Calendar from '../logs/Calendar';
 
 const HabitCard = ({ habit }) => {
 
