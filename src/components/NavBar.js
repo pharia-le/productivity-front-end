@@ -1,31 +1,41 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import Logout from './auth/Logout';
+import { logout } from '../actions/currentUser';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
 
-const NavBar = ({ currentUser, loggedIn }) => {
+const NavBar = ({ logout }) => {
     return (
-        <div className="NavBar">
-            <NavLink 
-                exact activeclass="true"
-                to="/habits"
-                >Habits  |
-            </NavLink>
-            <NavLink
-                exact activeclass="true"
-                to="/habits/new"
-                >New Habit  |
-            </NavLink>
-            { loggedIn ? <Logout /> : null }
-        </div>
+        <Navbar sticky="top" expand="lg" variant="light" bg="light">
+            <Container>
+                <Navbar.Brand href="/">App</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link 
+                            href="/habits"
+                            >My Habits
+                        </Nav.Link>
+                        <Nav.Link
+                            href="/habits/new"
+                            >Create
+                        </Nav.Link>
+                        <Nav.Link
+                            href="/about"
+                            >About
+                        </Nav.Link>
+                        <Nav.Link
+                            href="/about"
+                            >FAQ
+                        </Nav.Link>
+                        <Nav.Link 
+                            href="/#"
+                            onClick={logout}
+                            >Log Out
+                        </Nav.Link>
+                    </Nav>
+            </Container>
+        </Navbar>
     );
 };
 
-const mapStateToProps = ({ currentUser }) => {
-    return {
-        currentUser,
-        loggedIn: !!currentUser
-    }
-}
-
-export default connect(mapStateToProps)(NavBar);
+export default connect(null,{ logout })(NavBar);
