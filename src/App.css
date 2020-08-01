@@ -37,11 +37,12 @@
   }
 }
 
-.NavBar {
-  display: flex;
-  flex-direction: row;
-}
-
-a.active {
-  color: green;
+.login-form {
+  position: relative;
+  background: white;
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  resize: both;
+  overflow: auto;
 }
