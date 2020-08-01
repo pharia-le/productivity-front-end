@@ -5,6 +5,7 @@ import { getCurrentUser } from './actions/currentUser';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Login from './components/auth/Login';
+import Logout from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import Habits from './components/habits/Habits';
 import HabitCard from './components/habits/HabitCard';
@@ -12,7 +13,6 @@ import LogCard from './components/logs/LogCard';
 import EditHabitFormWrapper from './components/habits/EditHabitFormWrapper';
 import NewHabitFormWrapper from './components/habits/NewHabitFormWrapper';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './App.css';
 
 class App extends Component {
 
@@ -24,8 +24,9 @@ class App extends Component {
     const { loggedIn, habits } = this.props
     return (
       <div className="App">
-        { loggedIn ? <NavBar /> : <Home/> }
+        { loggedIn ? <NavBar /> : null }
         <Switch>
+          <Route exact path='/' render={() => loggedIn ? <Habits /> : <Home />} />
           <Route 
             exact path='/login'
             component={Login}
