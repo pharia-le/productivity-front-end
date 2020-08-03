@@ -23,12 +23,13 @@ const Login = ({ login, loginFormData, updateLoginForm, history }) => {
     }
 
     return (
-        <Form className="auth-form" onSubmit={handleOnSubmit}>
+        <Form className="auth-form" className="centered" onSubmit={handleOnSubmit}>
+            <h4>Log In</h4>
             <Form.Group>
                 <Form.Control
                     type="text" 
-                    name="username" 
-                    placeholder="Enter username"
+                    name="user_credential" 
+                    placeholder="Enter email / username"
                     value={loginFormData.username}
                     onChange={handleInputChange}
                 />
