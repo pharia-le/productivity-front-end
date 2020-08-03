@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         { loggedIn ? <NavBar /> : null }
         <Switch>
-          <Route exact path='/' render={() => loggedIn ? <Habits /> : <Home />} />
+          <Route exact path='/' render={props => loggedIn ? <Habits {...props} /> : <Home {...props} />} />
           <Route 
             exact path='/login'
             component={Login}
@@ -41,7 +41,9 @@ class App extends Component {
           />
           <Route 
             exact path='/habits'
-            component={Habits}
+            render={({ history }) => {
+              return <Habits history={history} />
+            }}
           />
           <Route 
             exact path='/habits/:id'
@@ -63,8 +65,10 @@ class App extends Component {
             exact path='/habits/:habitId/logs/:id'
             render={props => {
                 const habit = habits.find(habit => habit.id === props.match.params.habitId)
-                const log = habit.attributes.logs.find(log => log.id.toString() === props.match.params.id)
-                return <LogCard log={log} {...props} habit={habit} />
+                if (habit) {
+                  const log = habit.attributes.logs.find(log => log.id.toString() === props.match.params.id)
+                  return <LogCard log={log} {...props} habit={habit} />
+                }
               }
             }
           />
