@@ -22,9 +22,9 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
   }
 
   return (
-    <Form className="auth-form" onSubmit={handleSubmit}>
+    <Form className="auth-form" className="centered" onSubmit={handleSubmit}>
       <Form.Group>
-          
+          <h4>Sign Up</h4>
           <Form.Control
               type="text" 
               name="name" 
