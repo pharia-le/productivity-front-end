@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { updateHabit, deleteHabit } from '../../actions/habits';
 import { setFormDataForEdit, resetHabitForm } from '../../actions/habitForm';
 import HabitForm from './HabitForm';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 
 class EditHabitFormWrapper extends React.Component {
 
@@ -30,11 +32,20 @@ class EditHabitFormWrapper extends React.Component {
         const { deleteHabit, habit, history } = this.props
         const habitId = habit ? habit.id : null
         return (
-            <div>
-                <HabitForm editMode handleSubmit={this.handleSubmit} />
-                <br/>
-                <button style={{color: "red"}} onClick={()=>deleteHabit(habitId, history)}>Delete this Habit</button>
-            </div>
+            <>
+                <Container className='header-container' fluid>
+                    <Card 
+                        className='header-card'
+                        bg='light'
+                        text='danger'
+                    >
+                        <Card.Body>EDIT HABIT</Card.Body>
+                    </Card>
+                </Container>
+                <Container className='tinted-image' fluid>
+                <HabitForm editMode handleSubmit={this.handleSubmit} history={history} deleteHabit={() => deleteHabit(habitId,history)}/>
+                </Container>
+            </>
         )
     }
 };

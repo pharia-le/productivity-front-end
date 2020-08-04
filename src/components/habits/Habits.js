@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import IsLoggedToday from '../logs/IsLoggedToday';
 import NotLoggedToday from '../logs/NotLoggedToday';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card'
 
-const Habits = ({ habits }) => {
+const Habits = ({ habits, history }) => {
     
     let isDate = date => {
         const today = new Date()
@@ -13,9 +15,9 @@ const Habits = ({ habits }) => {
     const habitLinks = habits.length > 0 ?
     habits.map(h => (
             <div key={h.id}>{(h.attributes.logs.find(l => isDate(l.created_at))) ? 
-                <IsLoggedToday habit={h} /> 
+                <IsLoggedToday habit={h} history={history}/> 
                 :    
-                <NotLoggedToday habit={h} />
+                <NotLoggedToday habit={h} history={history}/>
                 }
             </div>
         )
@@ -23,9 +25,18 @@ const Habits = ({ habits }) => {
     : null
     return (
         <>
-            <h3>TODAY</h3>
-            <h5>{}</h5>
-            {habitLinks}
+            <Container className='header-container' fluid>
+                <Card 
+                    className='header-card'
+                    bg='light'
+                    text='danger'
+                    >
+                    <Card.Body>TODAY</Card.Body>
+                </Card>
+            </Container>
+            <Container className='tinted-image' fluid>
+                {habitLinks}
+            </Container>
         </>
         )
 };

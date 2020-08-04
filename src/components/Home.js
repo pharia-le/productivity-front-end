@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div>
+        <div className='centered'>
             <h4>Welcome, please <Link to='/signup' >Sign Up</Link> or <Link to='/login' >Log In</Link></h4>
         </div>
     );

@@ -13,26 +13,22 @@ const Calendar = ({ logs, history, calendarStartDate }) => {
     }
 
     const now = new Date();
-    const endDate = new Date(now.getFullYear(), now.getMonth()+1, 1)
+    const endDate = new Date(now.getFullYear(), now.getMonth(), 7)
     const startDate = new Date(now.getFullYear(), 0., 1).toLocaleDateString()
     
     return (
-        <div>
-            <CalendarHeatmap 
-                values={logs} 
-                onClick={handleClick}
-
-                startDate={startDate}
-                endDate={endDate}
-                classForValue={(value) => {
-                    if (!value) {
-                      return 'color-empty';
-                    }
-                    return `color-filled`;
-                  }}
-            />
-            
-        </div>
+        <CalendarHeatmap 
+            values={logs} 
+            onClick={handleClick}
+            startDate={startDate}
+            endDate={endDate}
+            classForValue={(value) => {
+                if (!value) {
+                  return 'color-empty';
+                }
+                return `color-filled`;
+              }}
+        />
     );
 };
 

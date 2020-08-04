@@ -4,7 +4,7 @@ import { updateHabitForm } from '../../actions/habitForm';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode }) => {
+const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode, deleteHabit }) => {
     
     const handleChange = event => {
         const { name, value } = event.target
@@ -29,9 +29,8 @@ const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode }) => {
                     value={formData.name} 
                 />
             </Form.Group>
-            <Button variant="primary" type="submit">
-                {editMode ? "Update Habit" : "Create Habit" }
-            </Button>
+            <Button className="edit-buttons" variant="danger" type="submit">{editMode ? "Update" : "Create" }</Button>
+            { editMode ? <Button className="edit-buttons" variant="secondary" onClick={deleteHabit}>Delete</Button> : null}
         </Form>
     );
 };

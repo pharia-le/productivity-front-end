@@ -7,9 +7,9 @@ import Nav from 'react-bootstrap/Nav';
 
 const NavBar = ({ logout }) => {
     return (
-        <Navbar sticky="top" expand="lg" variant="light" bg="light">
-            <Container>
-                <Navbar.Brand href="/">App</Navbar.Brand>
+        <Navbar sticky="top" expand="lg" variant="dark" bg="dark">
+            <Container id='navbar-container'>
+                <Navbar.Brand href="/">Productivity+</Navbar.Brand>
                     <Nav className="mr-auto">
                         <Nav.Link 
                             href="/habits"

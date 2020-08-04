@@ -1,12 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 
-const IsLoggedToday = ({habit}) => {
-    
+const IsLoggedToday = ({ habit, history }) => {
+
+    const handleClick = event => {
+        if (event.target.nodeName !== 'BUTTON') {
+            history.push(`/habits/${habit.id}`)
+        }
+    }
+
     return (
-        <div key={habit.id}>
-            <span><Link to={`/habits/${habit.id}`}>{habit.attributes.name}</Link> -- DONE </span>
-        </div>
+        <Container>
+            <Card 
+                className='is-logged'
+                key={habit.id}
+                name={habit.id}
+                text='light'
+                onClick={handleClick}
+            >
+                <Card.Body>{habit.attributes.name.toUpperCase()}</Card.Body>
+            </Card>
+        </Container>
     );
 };
 
