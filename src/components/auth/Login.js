@@ -23,7 +23,7 @@ const Login = ({ login, loginFormData, updateLoginForm, history }) => {
     }
 
     return (
-        <Form className="auth-form" className="centered" onSubmit={handleOnSubmit}>
+        <Form className="auth-form centered" onSubmit={handleOnSubmit}>
             <h4>Log In</h4>
             <Form.Group>
                 <Form.Control
