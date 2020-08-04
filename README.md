@@ -1,69 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Productivity+
 
-In the project directory, you can run:
+Productivity+ is a web application where a user may track their habits on a daily basis & see their gathered data visually. The front-end is built on React & Redux and data is stored within a Ruby on Rails back-end API.
 
-### `yarn start`
+### Installing
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone front-end and back-end repositories to chosen directory.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+git clone git@github.com:pharia-le/productivity-back-end.git
+git clone git@github.com:pharia-le/productivity-front-end.git
+```
 
-### `yarn test`
+Within productivity-back-end, perform the following:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1) Install gems.
 
-### `yarn build`
+```
+bundle install
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2) Create Postgres database.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+3) Perform migrations and run seed data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-### `yarn eject`
+Start servers by cding into the directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1) productivity-back-end
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+rails s
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2) productivity-front-end
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+yarn start
+```
 
-## Learn More
+Navigate to http://localhost:3001/ in browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Enjoy! :)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
 
-### Code Splitting
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Pull Request Process
 
-### Analyzing the Bundle Size
+1.Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+2.Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
 
-### Making a Progressive Web App
+3.Increase the version numbers in any examples files and the README.md to the new version that this Pull Request would represent. The versioning scheme we use is SemVer.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+4.You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
-### Advanced Configuration
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+This project is licensed under the MIT Open Source Public License.
 
-### Deployment
+## Back End
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# productivity-front-end
+Back end is [here](https://github.com/pharia-le/productivity-back-end)
