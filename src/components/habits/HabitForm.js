@@ -21,10 +21,9 @@ const HabitForm = ({ formData, updateHabitForm, handleSubmit, editMode, deleteHa
             <Form.Group>
                 <Form.Control 
                     size="lg"
-                    type="text"
-                    placeholder="Enter habit name"
                     name="name"
                     type="text"
+                    placeholder="Enter habit name"
                     onChange={handleChange}
                     value={formData.name} 
                 />
