@@ -6,9 +6,6 @@ import Card from 'react-bootstrap/Card';
 
 const HabitCard = ({ habit }) => {
 
-    const habitCreatedDate = date => new Date(Date.parse(date))
-    const calendarStartDate = date => new Date(habitCreatedDate(date).getFullYear(), habitCreatedDate(date).getMonth()-1, 1)
-
     return (
         <div>
             {habit ?
@@ -29,7 +26,7 @@ const HabitCard = ({ habit }) => {
 
                 <Container className='tinted-image' fluid>
                     <Card id="calendar-card">
-                        <Calendar logs={habit.attributes.logs} calendarStartDate={calendarStartDate(habit.attributes.created_at)}/>
+                        <Calendar logs={habit.attributes.logs} />
                     </Card >
                 </Container>
 

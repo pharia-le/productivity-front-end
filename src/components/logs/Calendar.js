@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 
-const Calendar = ({ logs, history, calendarStartDate }) => {
+const Calendar = ({ logs, history }) => {
     
     const handleClick = event => {
         if (event) {
