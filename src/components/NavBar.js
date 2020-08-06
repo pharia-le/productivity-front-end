@@ -4,34 +4,35 @@ import { logout } from '../actions/currentUser';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import { LinkContainer } from 'react-router-bootstrap'
 
 const NavBar = ({ logout }) => {
     return (
         <Navbar sticky="top" expand="lg" variant="dark" bg="dark">
             <Container id='navbar-container'>
-                <Navbar.Brand href="/">Productivity+</Navbar.Brand>
+                {/* <Navbar.Brand to="/">Productivity+</Navbar.Brand> */}
                     <Nav className="mr-auto">
-                        <Nav.Link 
-                            href="/habits"
-                            >My Habits
-                        </Nav.Link>
-                        <Nav.Link
-                            href="/habits/new"
-                            >Create
-                        </Nav.Link>
-                        <Nav.Link
-                            href="/about"
-                            >About
-                        </Nav.Link>
-                        <Nav.Link
-                            href="/about"
-                            >FAQ
-                        </Nav.Link>
-                        <Nav.Link 
-                            href="/#"
+                        <LinkContainer 
+                            to="/habits"
+                            ><button>My Habits</button>
+                        </LinkContainer>
+                        <LinkContainer
+                            to="/habits/new"
+                            ><button>Create</button>
+                        </LinkContainer>
+                        <LinkContainer
+                            to="/about"
+                            ><button>About</button>
+                        </LinkContainer>
+                        <LinkContainer
+                            to="/faq"
+                            ><button>FAQ</button>
+                        </LinkContainer>
+                        <LinkContainer 
+                            to="/#"
                             onClick={logout}
-                            >Log Out
-                        </Nav.Link>
+                            ><button>Log Out</button>
+                        </LinkContainer>
                     </Nav>
             </Container>
         </Navbar>
