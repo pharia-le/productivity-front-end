@@ -6,9 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 const LogCard = ({ log, habit, history, deleteLog }) => {
-    // const dateToStr = (date) => {
-    //     return new Date(Date.parse(date)).toDateString()
-    //   }
+
     return (
         <>
             { log ?
