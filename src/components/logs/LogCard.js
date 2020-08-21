@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 const LogCard = ({ log, habit, history, deleteLog }) => {
-
+    
     return (
         <>
             { log ?
@@ -22,7 +22,7 @@ const LogCard = ({ log, habit, history, deleteLog }) => {
                 </Container>
                 <Container className='tinted-image' fluid>
                     <Card id='log-card'>
-                        <h4>Date of Log</h4>
+                        <small>DATE</small>
                         <h5>{log.date}</h5>
                         <Button variant='secondary' onClick={() => deleteLog(log.id, habit.id, history)}>Delete</Button>
                     </Card>
