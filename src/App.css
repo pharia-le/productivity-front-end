@@ -163,3 +163,8 @@ button {
   overflow: auto;
   font-weight: bold;
 }
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  color:rgb(49, 119, 235)
+}
