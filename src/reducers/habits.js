@@ -1,6 +1,4 @@
-const initialState = []
-
-export default (state = initialState, action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case "SET_HABITS":
             return action.habits
@@ -11,7 +9,7 @@ export default (state = initialState, action) => {
         case "DELETE_HABIT":
             return state.filter(habit => habit.id !== action.habitId)
         case "CLEAR_HABITS":
-            return initialState
+            return []
         default:
             return state
     }
