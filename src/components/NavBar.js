@@ -10,23 +10,15 @@ const NavBar = ({ logout }) => {
     return (
         <Navbar sticky="top" expand="lg" variant="dark" bg="dark">
             <Container id='navbar-container'>
-                {/* <Navbar.Brand to="/">Productivity+</Navbar.Brand> */}
+                <Navbar.Brand to="/">Productivity</Navbar.Brand>
                     <Nav className="mr-auto">
                         <LinkContainer 
                             to="/habits"
-                            ><button>My Habits</button>
+                            ><button>Habits</button>
                         </LinkContainer>
                         <LinkContainer
                             to="/habits/new"
                             ><button>Create</button>
-                        </LinkContainer>
-                        <LinkContainer
-                            to="/about"
-                            ><button>About</button>
-                        </LinkContainer>
-                        <LinkContainer
-                            to="/faq"
-                            ><button>FAQ</button>
                         </LinkContainer>
                         <LinkContainer 
                             to="/#"
