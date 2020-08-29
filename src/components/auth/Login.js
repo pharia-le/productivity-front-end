@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button';
 const Login = ({ login, loginFormData, updateLoginForm, history }) => {
     
     const handleInputChange = event => {
-        
         const { name, value } = event.target
         const updatedFormInfo = {
             ...loginFormData,
@@ -43,17 +42,9 @@ const Login = ({ login, loginFormData, updateLoginForm, history }) => {
                     onChange={handleInputChange}
                     />
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Log In
-            </Button>
+            <Button variant="primary" type="submit">Log In</Button>
         </Form>
     );
 };
 
-const mapStateToProps = ({loginForm}) => {
-    return {
-        loginFormData: loginForm
-    }
-}
-
-export default connect(mapStateToProps, { updateLoginForm, login })(Login);
+export default connect(state => ({ loginFormData: state.loginForm }), { updateLoginForm, login })(Login);
