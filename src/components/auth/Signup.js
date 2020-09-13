@@ -34,7 +34,6 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
               onFocus
           />
       </Form.Group>
-
       <Form.Group>
           <Form.Control
               type="text" 
@@ -44,7 +43,6 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
               onChange={handleInputChange}
               />
       </Form.Group>
-
       <Form.Group>
           <Form.Control
               type="text" 
@@ -54,7 +52,6 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
               onChange={handleInputChange}
           />
       </Form.Group>
-      
       <Form.Group>
           <Form.Control
               type="password" 
